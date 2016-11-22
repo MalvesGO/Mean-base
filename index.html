@@ -1,0 +1,61 @@
+<html ng-app="pdApp">
+<head>
+
+    <title>Aprendizado MEAN</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script src="config/pd-app.js"></script>
+    <script src="controllers/controller.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+</head>
+<body ng-app="pdApp">
+
+<div class="container" ng-controller="IndexController">
+
+    <div class="jumbotron">
+        <h1>Lista de Contatos</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>email</th>
+            <th>Telefone</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input class="form-control" ng-model="contato.name"></td>
+            <td><input class="form-control" ng-model="contato.email"></td>
+            <td><input class="form-control" ng-model="contato.telefone"></td>
+            <td><button class="btn btn-primary" ng-click="inserir()">Adicionar contato</button>
+                <button class="btn btn-info" ng-click="atualizar()">Atualizar</button>
+                <button class="btn btn-warning" ng-click="limpar()">Limpar</button>
+            </td>
+        </tr>
+            <tr ng-repeat="contato in lista">
+                <td>{{contato.name}}</td>
+                <td>{{contato.email}}</td>
+                <td>{{contato.telefone}}</td>
+                <td><button class="btn btn-danger" ng-click="remover(contato._id)">Remover</button>
+                    <button class="btn btn-warning" ng-click="editar(contato._id)">Editar</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
